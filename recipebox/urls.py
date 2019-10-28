@@ -15,22 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import url
 from recipebox import views
 from recipebox.models import Recipe, CookBook, BookDistributor
 
 
-# admin.site.unregister(Recipe)
-# admin.site.unregister(CookBook)
-# admin.site.unregister(BookDistributor)
+
 admin.site.register(Recipe)
 admin.site.register(CookBook)
 admin.site.register(BookDistributor)
 
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index),
-    path('recipes', views.recipes),
-    path('books', views.books),
-    path('bookdistributors', views.distributors),
+    path('books', views.books, name='books'),
+    path('recipes', views.recipes, name='recipes'),
+    path('bookdistributors', views.distributors, name='bookdistributors'),
 ]

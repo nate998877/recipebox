@@ -23,9 +23,12 @@ class Recipe(models.Model):
     recipe = models.TextField()
 
     def __str__(self):
-        print(f"{self.title} - {self.cookbook.name}")
-        return f"{self.title} - {self.cookbook.name}"
+        return f"{self.cookbook} - {self.title}"
+
 
 class BookDistributor(models.Model):
     name = models.CharField(max_length=50)
     earnings = models.IntegerField()
+
+    def __str__(self):
+        return self.name
